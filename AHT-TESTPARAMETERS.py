@@ -16,7 +16,8 @@ except ImportError as e:
 # -----------------------------
 # Configuration File Path and Loading
 # -----------------------------
-CONFIG_FILE = "config.json"
+# Updated path to pull from the 'node' folder, as requested.
+CONFIG_FILE = "node/config.json"
 
 
 def get_config_data():
@@ -48,7 +49,8 @@ def get_config_data():
         return config
 
     except FileNotFoundError:
-        print(f"ERROR: Configuration file '{CONFIG_FILE}' not found in the local directory. Using default settings.")
+        # Updated error message to indicate the expected path
+        print(f"ERROR: Configuration file '{CONFIG_FILE}' not found. Ensure it is located in the 'node' subdirectory relative to the script's execution path. Using default settings.")
         return default_config
     except json.JSONDecodeError:
         print(f"ERROR: Configuration file '{CONFIG_FILE}' is not valid JSON. Using default settings.")
